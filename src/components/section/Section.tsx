@@ -1,12 +1,23 @@
 import { Card } from "../card/Card";
 
-export const Section = () => {
+interface ISectionProps {
+  title: string;
+  variant: "grid" | "h-list";
+}
+
+export const Section = ({ title, variant = "grid" }: ISectionProps) => {
   return (
     <section className="flex flex-col gap-4 px-4 ">
-      <h2 className="font-bold text-xl">Todos os Cursos</h2>
+      <h2 className="font-bold text-xl">{title}</h2>
 
-      <ul className="flex flex-col gap-2">
-        <li>
+      <ul
+        data-variant={variant}
+        className="grid grid-cols-1 sm:grid-cols-none gap-2 data-[variant=grid]:sm:grid-cols-2 data-[variant=grid]:md:grid-cols-3 data-[variant=h-list]:sm:grid-flow-col data-[variant=h-list]:sm:overflow-x-auto"
+      >
+        <li
+          data-variant={variant}
+          className="w-full data-[variant=h-list]:sm:w-72"
+        >
           <Card
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
           tempora ea suscipit officiis accusamus nulla, tempore qui commodi iure
@@ -24,7 +35,10 @@ export const Section = () => {
             title="Curso de API Rest, Node e Typescript"
           />
         </li>
-        <li>
+        <li
+          data-variant={variant}
+          className="w-full data-[variant=h-list]:sm:w-72"
+        >
           <Card
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
           tempora ea suscipit officiis accusamus nulla, tempore qui commodi iure
@@ -42,7 +56,10 @@ export const Section = () => {
             title="Curso de API Rest, Node e Typescript"
           />
         </li>
-        <li>
+        <li
+          data-variant={variant}
+          className="w-full data-[variant=h-list]:sm:w-72"
+        >
           <Card
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
           tempora ea suscipit officiis accusamus nulla, tempore qui commodi iure
