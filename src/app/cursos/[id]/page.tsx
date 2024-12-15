@@ -1,4 +1,4 @@
-import { ClassGroup } from "@/components/course-content/components/ClassGroup";
+import { CourseContent } from "@/components/course-content/CourseContent";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
 import { Metadata } from "next";
@@ -25,21 +25,62 @@ export default function PageCourseDetail({ params }: Props) {
             imageUrl="https://flowbite.com/docs/images/blog/image-1.jpg"
           />
         </div>
-        <div className="flex-[2] flex flex-col gap-4">
+        <div className="flex-[2] flex flex-col gap-12">
           <CourseHeader />
-          <ClassGroup
-            title="Introducao e apresentacao do projeto"
-            courseId="123"
-            classes={[
+          <CourseContent
+            classGroups={[
               {
-                id: "1",
-                title:
-                  "NextJs, TailwindCSS e Typescript: #00 - Apresentacao do prototipo",
+                title: "Introducao e apresentacao do projeto",
+                courseId: "123",
+                classes: [
+                  {
+                    id: "1",
+                    title:
+                      "NextJs, TailwindCSS e Typescript: #00 - Apresentacao do prototipo",
+                  },
+                  {
+                    id: "2",
+                    title:
+                      "NextJs, TailwindCSS e Typescript: #01 - Apresentacao do prototipo",
+                  },
+                ],
               },
               {
-                id: "2",
-                title:
-                  "NextJs, TailwindCSS e Typescript: #01 - Apresentacao do prototipo",
+                title: "Introducao e apresentacao do projeto",
+                courseId: "123",
+                classes: [
+                  {
+                    id: "1",
+                    title:
+                      "NextJs, TailwindCSS e Typescript: #00 - Apresentacao do prototipo",
+                  },
+                  {
+                    id: "2",
+                    title:
+                      "NextJs, TailwindCSS e Typescript: #01 - Apresentacao do prototipo",
+                  },
+                  {
+                    id: "3",
+                    title:
+                      "NextJs, TailwindCSS e Typescript: #02 - Apresentacao do prototipo",
+                  },
+                ],
+              },
+              {
+                title: "Introducao e apresentacao do projeto",
+                courseId: "123",
+                classes: [
+                  {
+                    id: "1",
+                    title:
+                      "NextJs, TailwindCSS e Typescript: #00 - Apresentacao do prototipo",
+                  },
+                  {
+                    id: "2",
+                    title:
+                      "NextJs, TailwindCSS e Typescript: #01 - Apresentacao do prototipo",
+                  },
+                ],
               },
             ]}
           />
