@@ -1,3 +1,4 @@
+"use client";
 import { CourseContent } from "@/components/course-content/CourseContent";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
@@ -25,8 +26,28 @@ export default function PageCourseDetail({ params }: Props) {
             imageUrl="https://flowbite.com/docs/images/blog/image-1.jpg"
           />
         </div>
-        <div className="flex-[2] flex flex-col gap-12">
-          <CourseHeader />
+        <div className="flex-[2] flex flex-col gap-12 pb-12">
+          <CourseHeader
+            title="Curso de figma para DEVS"
+            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, eveniet.
+        Laborum cum voluptates quas obcaecati assumenda. Commodi maxime magnam
+        perferendis sapiente corrupti eum cumque, debitis, quisquam voluptatibus
+        vel dolor. Architecto ullam, quae consequuntur quis, ratione ex itaque
+        assumenda labore esse asperiores beatae aspernatur suscipit inventore
+        illum nesciunt odit dolorem facere, natus maxime fugit. Et ab assumenda
+        libero hic iusto quasi temporibus iste cumque veritatis. Praesentium
+        unde consectetur maiores temporibus eos? Nesciunt rerum illo, modi non
+        eum quas, placeat eligendi asperiores rem repellendus recusandae
+        repudiandae? Facere velit fuga id ipsum vitae reiciendis dolor esse
+        doloribus, aspernatur a aliquam perspiciatis fugit, non corporis
+        reprehenderit, commodi ab consequuntur laboriosam aut rerum. Aliquid,
+        atque! Vel fugiat vitae molestiae aut velit ratione. Laboriosam labore
+        fugit nisi, quisquam quidem esse, maxime reprehenderit, illo repudiandae
+        distinctio veritatis mollitia eveniet ea est error vitae animi aut
+        molestias eos? Perferendis, est. Maxime adipisci dicta accusamus! Ipsum
+        amet suscipit pariatur."
+            numberOfClasses={48}
+          />
           <CourseContent
             classGroups={[
               {
