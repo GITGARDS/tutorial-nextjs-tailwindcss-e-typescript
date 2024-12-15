@@ -19,7 +19,7 @@ export const StartCourse = ({
 
   return (
     <>
-      <div ref={ref} className="p-3 bg-paper rounded-md flex flex-col gap-2">
+      <div ref={ref} className="p-3 bg-paper rounded-md flex flex-col gap-4 md:sticky md:top-[104px]">
         <Link
           href={`/player/${idCourse}/${idClass}`}
           style={{
@@ -33,7 +33,7 @@ export const StartCourse = ({
         </Link>
         <Link
           href={`/player/${idCourse}/${idClass}`}
-          className="bg-primary p-2 px-3 rounded text-center"
+          className="bg-primary p-2 px-3 rounded text-center hover:no-underline"
         >
           Começar curso
         </Link>
@@ -44,7 +44,7 @@ export const StartCourse = ({
           <h1 className="font-extrabold text-xl">{title}</h1>
           <Link
             href={`/player/${idCourse}/${idClass}`}
-            className="bg-primary p-2 px-3 rounded text-center"
+            className="bg-primary p-2 px-3 rounded text-center hover:no-underline"
           >
             Começar curso
           </Link>
