@@ -1,4 +1,6 @@
+import { MdShare } from "react-icons/md";
 import { CollapsibleText } from "./components/CollapsibleText";
+import { ContextCopy } from "./components/ContextCopy";
 
 export const CourseHeader = () => {
   return (
@@ -24,9 +26,12 @@ export const CourseHeader = () => {
         amet suscipit pariatur.
       </CollapsibleText>
       <div className="flex gap-2 items-center">
-        <button className="py-2 px-4 rounded-full bg-paper">
-          Compartilhar
-        </button>
+        <ContextCopy title="Copie o conteudo abaixo" content="https://codarse.com/cursos/PL29TaWXah3iZqMoLjUU8EoKXQXjuc50F1">
+          <button className="flex items-center gap-2 py-2 px-4 rounded-full bg-paper">
+            <MdShare />
+            Compartilhar
+          </button>
+        </ContextCopy>
         <span>48 aulas</span>
       </div>
     </div>
