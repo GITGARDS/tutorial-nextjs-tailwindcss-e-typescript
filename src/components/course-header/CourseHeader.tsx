@@ -1,17 +1,32 @@
+import { CollapsibleText } from "./components/CollapsibleText";
+
 export const CourseHeader = () => {
   return (
     <div className="flex flex-col gap-2">
       <h1 className="font-extrabold text-xl">Curso de figma para DEVS</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus quos
-        provident itaque amet voluptates accusantium accusamus excepturi commodi
-        modi, sint veritatis quidem aspernatur perspiciatis. Cupiditate facilis,
-        dicta nulla inventore maxime in expedita aliquam quia! Id sapiente
-        placeat alias! Non facere minus, voluptatibus ad iste nisi itaque sit
-        enim ullam ipsam.
-      </p>
+      <CollapsibleText numberOfLinesWhenClosed={3}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, eveniet.
+        Laborum cum voluptates quas obcaecati assumenda. Commodi maxime magnam
+        perferendis sapiente corrupti eum cumque, debitis, quisquam voluptatibus
+        vel dolor. Architecto ullam, quae consequuntur quis, ratione ex itaque
+        assumenda labore esse asperiores beatae aspernatur suscipit inventore
+        illum nesciunt odit dolorem facere, natus maxime fugit. Et ab assumenda
+        libero hic iusto quasi temporibus iste cumque veritatis. Praesentium
+        unde consectetur maiores temporibus eos? Nesciunt rerum illo, modi non
+        eum quas, placeat eligendi asperiores rem repellendus recusandae
+        repudiandae? Facere velit fuga id ipsum vitae reiciendis dolor esse
+        doloribus, aspernatur a aliquam perspiciatis fugit, non corporis
+        reprehenderit, commodi ab consequuntur laboriosam aut rerum. Aliquid,
+        atque! Vel fugiat vitae molestiae aut velit ratione. Laboriosam labore
+        fugit nisi, quisquam quidem esse, maxime reprehenderit, illo repudiandae
+        distinctio veritatis mollitia eveniet ea est error vitae animi aut
+        molestias eos? Perferendis, est. Maxime adipisci dicta accusamus! Ipsum
+        amet suscipit pariatur.
+      </CollapsibleText>
       <div className="flex gap-2 items-center">
-        <button className="py-2 px-4 rounded-full bg-paper">Compartilhar</button>
+        <button className="py-2 px-4 rounded-full bg-paper">
+          Compartilhar
+        </button>
         <span>48 aulas</span>
       </div>
     </div>
