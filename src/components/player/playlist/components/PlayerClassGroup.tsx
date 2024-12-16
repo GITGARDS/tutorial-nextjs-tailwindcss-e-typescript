@@ -1,26 +1,31 @@
-
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import { IPlayerClassProps, PlayerClass } from "./PlayerClass";
 
-interface IPlayerClassGroupProps {
+export interface IPlayerClassGroupProps {
   title: string;
   open: boolean;
   position: number;
-  classes: Pick<IPlayerClassProps, "done" | "playing" | "title">[];
+  playingClassId: string;
+  classes: (Pick<IPlayerClassProps, "done" | "title"> & { classId: string })[];
   onToggle: () => void;
+  onPlay: (classId: string) => void;
+  onCheck: (classId: string) => void;
 }
 
 export const PlayerClassGroup = ({
   title,
   open,
   position,
+  playingClassId,
   classes,
   onToggle,
+  onPlay,
+  onCheck,
 }: IPlayerClassGroupProps) => {
   return (
     <div className="flex flex-col">
       <button
-        className="flex gap-6 p-4 bg-paper items-center"
+        className="flex gap-6 p-4 bg-paper items-center active:opacity-80"
         onClick={onToggle}
       >
         <div className="flex items-center justify-center bg-background h-12 w-12 rounded-full">
@@ -47,8 +52,9 @@ export const PlayerClassGroup = ({
           <li key={classItem.title}>
             <PlayerClass
               {...classItem}
-              onPlay={() => console.log("play")}
-              onCheck={() => console.log("check")}
+              playing={classItem.classId === playingClassId}
+              onPlay={() => onPlay(classItem.classId)}
+              onCheck={() => onCheck(classItem.classId)}
             />
           </li>
         ))}
@@ -56,16 +62,3 @@ export const PlayerClassGroup = ({
     </div>
   );
 };
-
-{
-  /* <li>
-<PlayerClass
-  onCheck={() => console.log("check")}
-  onPlay={() => console.log("play")}
-  done={false}
-  playing={true}
-  title="API Rest, Node e Typescript #00 - Apresentacao do curso tecnologias
-usads e muito mais"
-/>
-</li> */
-}

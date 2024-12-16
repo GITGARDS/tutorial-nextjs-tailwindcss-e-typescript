@@ -17,7 +17,7 @@ export const PlayerClass = ({
   onCheck,
 }: IPlayerClassProps) => {
   return (
-    <button className="flex gap-6 p-4 items-center" onClick={onPlay}>
+    <button className="flex gap-6 p-4 items-center" onClick={() => onPlay()}>
       {done === true ? (
         <MdCheckCircle size={24} className="min-w-6 text-green-400" />
       ) : (
