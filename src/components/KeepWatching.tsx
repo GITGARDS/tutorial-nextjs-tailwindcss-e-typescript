@@ -4,7 +4,7 @@ import { MdPlayCircle } from "react-icons/md";
 export const KeepWatching = () => {
   return (
     <Link
-      href={`/player/{courseId}/{classId}`}
+      href={`/player/${'id-do-curso-em-questao'}/${'id-da-aula-em-questao'}`}
       className="flex p-4 mx-4 gap-2 bg-primary rounded-lg hover:no-underline"
     >
       <div className="flex flex-col gap-2 flex-1">
