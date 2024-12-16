@@ -25,14 +25,14 @@ export const PlayerClassGroup = ({
   return (
     <div className="flex flex-col">
       <button
-        className="flex gap-6 p-4 bg-paper items-center active:opacity-80"
+        className="flex gap-2 p-4 bg-paper items-center active:opacity-80"
         onClick={onToggle}
       >
         <div className="flex items-center justify-center bg-background h-12 w-12 rounded-full">
           {position}
         </div>
 
-        <div className="flex flex-col flex-1 items-start line-clamp-1">
+        <div className="flex flex-col flex-1 items-start">
           <span className="font-bold text-start line-clamp-1">{title}</span>
           <span className="font-light text-sm text-start line-clamp-1">
             {classes.filter((classItem) => classItem.done).length}/

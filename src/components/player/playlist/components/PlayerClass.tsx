@@ -44,9 +44,11 @@ export const PlayerClass = ({
           {title}
         </p>
 
-        <span className="px-2 py-1 leading-4 bg-blue-600 rounded-full">
-          {playing && "Reproduzindo"}
-        </span>
+        {playing && (
+          <span className='px-2 py-1 bg-blue-400 rounded-full leading-4'>
+            Reproduzindo
+          </span>
+        )}
       </div>
     </button>
   );
