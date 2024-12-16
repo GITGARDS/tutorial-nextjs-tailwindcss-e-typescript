@@ -1,6 +1,10 @@
 "use client";
 
-import { PlayerHeader, PlayerPlaylist } from "@/components/player";
+import {
+  PlayerHeader,
+  PlayerPlaylist,
+  PlayerVideoPlayer,
+} from "@/components/player";
 
 interface Props {
   params: {
@@ -23,36 +27,7 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
             playingClassId={classId}
             classGroup={[
               {
-                title: "Introducao e apresentacao do projeto",
-                classes: [
-                  {
-                    done: true,
-                    classId: "aula-01",
-                    title:
-                      "API Rest, Node e Typescript #00 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-02",
-                    title:
-                      "API Rest, Node e Typescript #02 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-03",
-                    title:
-                      "API Rest, Node e Typescript #03 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-04",
-                    title:
-                      "API Rest, Node e Typescript #04 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
+                title: "1 - Introducao e apresentacao do projeto",
                 classes: [
                   {
                     done: true,
@@ -81,7 +56,7 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
                 ],
               },
               {
-                title: "Introducao e apresentacao do projeto",
+                title: "2 - Introducao e apresentacao do projeto",
                 classes: [
                   {
                     done: true,
@@ -110,7 +85,7 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
                 ],
               },
               {
-                title: "Introducao e apresentacao do projeto",
+                title: "3 - Introducao e apresentacao do projeto",
                 classes: [
                   {
                     done: true,
@@ -139,7 +114,7 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
                 ],
               },
               {
-                title: "Introducao e apresentacao do projeto",
+                title: "4 - Introducao e apresentacao do projeto",
                 classes: [
                   {
                     done: true,
@@ -168,181 +143,7 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
                 ],
               },
               {
-                title: "Introducao e apresentacao do projeto",
-                classes: [
-                  {
-                    done: true,
-                    classId: "aula-09",
-                    title:
-                      "API Rest, Node e Typescript #09 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-10",
-                    title:
-                      "API Rest, Node e Typescript #10 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-11",
-                    title:
-                      "API Rest, Node e Typescript #11 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-12",
-                    title:
-                      "API Rest, Node e Typescript #12 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
-                classes: [
-                  {
-                    done: true,
-                    classId: "aula-09",
-                    title:
-                      "API Rest, Node e Typescript #09 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-10",
-                    title:
-                      "API Rest, Node e Typescript #10 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-11",
-                    title:
-                      "API Rest, Node e Typescript #11 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-12",
-                    title:
-                      "API Rest, Node e Typescript #12 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
-                classes: [
-                  {
-                    done: true,
-                    classId: "aula-09",
-                    title:
-                      "API Rest, Node e Typescript #09 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-10",
-                    title:
-                      "API Rest, Node e Typescript #10 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-11",
-                    title:
-                      "API Rest, Node e Typescript #11 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-12",
-                    title:
-                      "API Rest, Node e Typescript #12 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
-                classes: [
-                  {
-                    done: true,
-                    classId: "aula-09",
-                    title:
-                      "API Rest, Node e Typescript #09 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-10",
-                    title:
-                      "API Rest, Node e Typescript #10 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-11",
-                    title:
-                      "API Rest, Node e Typescript #11 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-12",
-                    title:
-                      "API Rest, Node e Typescript #12 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
-                classes: [
-                  {
-                    done: true,
-                    classId: "aula-09",
-                    title:
-                      "API Rest, Node e Typescript #09 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-10",
-                    title:
-                      "API Rest, Node e Typescript #10 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-11",
-                    title:
-                      "API Rest, Node e Typescript #11 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-12",
-                    title:
-                      "API Rest, Node e Typescript #12 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
-                classes: [
-                  {
-                    done: true,
-                    classId: "aula-09",
-                    title:
-                      "API Rest, Node e Typescript #09 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-10",
-                    title:
-                      "API Rest, Node e Typescript #10 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-11",
-                    title:
-                      "API Rest, Node e Typescript #11 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                  {
-                    done: false,
-                    classId: "aula-12",
-                    title:
-                      "API Rest, Node e Typescript #12 - Apresentacao do curso tecnologias usadas e muito mais",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
+                title: "5 - Introducao e apresentacao do projeto",
                 classes: [
                   {
                     done: true,
@@ -374,7 +175,9 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
           />
         </div>
 
-        <div className="flex-1">Player</div>
+        <div className="flex-1">
+          <PlayerVideoPlayer videoId={"sBRnDuWCEOd-QSBX"} />
+        </div>
       </div>
     </main>
   );
