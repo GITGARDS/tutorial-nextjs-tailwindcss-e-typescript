@@ -1,3 +1,5 @@
+"use client";
+
 import { MdShare } from "react-icons/md";
 import { CollapsibleText } from "./components/CollapsibleText";
 import { ContextCopy } from "./components/ContextCopy";

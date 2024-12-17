@@ -4,6 +4,10 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
+import {
+  IPlayerClassHeaderProps,
+  PlayerClassHeader,
+} from "./components/PlayerClassHeader";
 import { PlayerVideoPlayer } from "./components/PlayerVideoPlayer";
 
 interface IPlayerClassDetailsProps {
@@ -12,12 +16,14 @@ interface IPlayerClassDetailsProps {
     description: string;
     numberOfClasses: number;
   };
+  classItem: IPlayerClassHeaderProps;
   playingCourseId: string;
   playingClassId: string;
   classGroups: Pick<IPlayerClassGroupProps, "classes" | "title">[];
 }
 export const PlayerClassDetails = ({
   course,
+  classItem,
   playingCourseId,
   playingClassId,
   classGroups,
@@ -49,7 +55,7 @@ export const PlayerClassDetails = ({
         />
       </div>
 
-      <Tabs.Root defaultValue="course-details">
+      <Tabs.Root defaultValue="class-details">
         <Tabs.List className="flex gap-4">
           <Tabs.Trigger
             value="class-details"
@@ -72,9 +78,15 @@ export const PlayerClassDetails = ({
             Detalhes do curso
           </Tabs.Trigger>
         </Tabs.List>
-        <hr className="border-paper" />
+        <hr className="border-paper mb-2" />
 
-        <Tabs.Content value="class-details">Detalhes da aula</Tabs.Content>
+        <Tabs.Content value="class-details">
+          <PlayerClassHeader
+            title={classItem.title}
+            description={classItem.description}
+          />
+        </Tabs.Content>
+
         <Tabs.Content value="class-comments">Comentarios da aula</Tabs.Content>
         <Tabs.Content value="course-details">
           <CourseHeader
