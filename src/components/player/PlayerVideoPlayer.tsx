@@ -12,10 +12,12 @@ interface IPlayerVideoPlayer {
 export const PlayerVideoPlayer = ({ videoId }: IPlayerVideoPlayer) => {
   return (
     <>
-      <div>PlayerVideoPlayer</div>
       <ReactPlayer
+      height={"100%"}
+      width={"100%"}
+      playing={true}
+      controls={true}
         url={`https://www.youtube.com/embed/bP47qRVRqQs?si=${videoId}`}
-        controls={true}
       />
     </>
   );
