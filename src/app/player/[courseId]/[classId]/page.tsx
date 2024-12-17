@@ -177,7 +177,7 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
 
         <div className="flex-1">
           <div className="aspect-video">
-            <PlayerVideoPlayer videoId={"sBRnDuWCEOd-QSBX"} />
+            <PlayerVideoPlayer videoId={"sBRnDuWCEOd-QSBX"} onPlayNext={() => console.log("playnext")} />
           </div>
         </div>
       </div>
