@@ -179,6 +179,12 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
           playingCourseId={courseId}
           playingClassId={classId}
           classGroups={classGroupData}
+          course={{
+            title: "Curso de figma para DEVS",
+            numberOfClasses: 48,
+            description:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore illum molestias quibusdam suscipit recusandae modi quam dicta expedita excepturi fugiat alias quaerat nihil, ea vitae cupiditate quod assumenda maxime laudantium numquam sit. Ullam officia earum debitis non maiores. Dolores pariatur neque illo consectetur hic tenetur. Unde sunt sit consequatur eum!",
+          }}
         />
       </div>
     </main>

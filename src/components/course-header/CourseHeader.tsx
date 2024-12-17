@@ -3,19 +3,21 @@ import { CollapsibleText } from "./components/CollapsibleText";
 import { ContextCopy } from "./components/ContextCopy";
 
 interface ICourseHeaderProps {
-  title: string,
-  description: string,
-  numberOfClasses: number
-
+  title: string;
+  description: string;
+  numberOfClasses: number;
 }
 
-export const CourseHeader = ({title, description, numberOfClasses}: ICourseHeaderProps) => {
+export const CourseHeader = ({
+  title,
+  description,
+  numberOfClasses,
+}: ICourseHeaderProps) => {
   return (
     <div className="flex flex-col gap-2">
       <h1 className="font-extrabold text-xl">{title}</h1>
       <CollapsibleText numberOfLinesWhenClosed={3}>
-      {description}
-        
+        {description}
       </CollapsibleText>
       <div className="flex gap-2 items-center">
         <ContextCopy
