@@ -22,7 +22,7 @@ export const Comment = ({}: ICommentProps) => {
         <div className="flex gap-2 items-center">
           <span className="font-bold">User Name</span>
           <span className="font-extrabold opacity-50 text-xs">
-            25/07/25 as 15:25data
+            25/07/25 as 15:25
           </span>
         </div>
         <p>Comment</p>
