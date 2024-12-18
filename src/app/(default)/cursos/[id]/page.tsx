@@ -4,6 +4,7 @@ import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
 import { Metadata } from "next";
 
+
 interface Props {
   params: { id: string };
 }
