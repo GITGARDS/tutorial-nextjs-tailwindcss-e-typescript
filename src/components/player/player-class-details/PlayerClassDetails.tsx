@@ -6,15 +6,16 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
 
 import { CourseHeaderLoading } from "@/components/course-header/CourseHeaderLoading";
-import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
+import { LocalStorage } from "@/shared/services/local-storage";
 import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
+import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
+import { ICommentProps } from "./components/comments/Comment";
+import { Comments } from "./components/comments/Comments";
 import { PlayerClassHeader } from "./components/PlayerClassHeader";
 import {
   IPlayerVideoPlayerRef,
   PlayerVideoPlayer,
 } from "./components/PlayerVideoPlayer";
-import { ICommentProps } from "./components/comments/Comment";
-import { Comments } from "./components/comments/Comments";
 
 const CourseHeader = dynamic(
   () =>
@@ -66,6 +67,15 @@ export const PlayerClassDetails = ({
     matchMedia.addEventListener("change", handleMatchMedia);
     return () => matchMedia.removeEventListener("change", handleMatchMedia);
   }, [currentTab]);
+
+  useEffect(() => {
+    LocalStorage.keepWatching.set({
+      classId: classItem.id,
+      courseId: course.id,
+      className: classItem.title,
+      courseName: course.title,
+    });
+  }, [course.id, course.title, classItem.id, classItem.title]);
 
   const nextClassId = useMemo(() => {
     const classes = course.classGroups.flatMap(
