@@ -1,59 +1,78 @@
-"use client";
+'use client';
+import dynamic from 'next/dynamic';
+import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { MdPlayCircle } from 'react-icons/md';
+import type TReactPlayer from 'react-player';
 
-import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
-import { MdPlayCircle } from "react-icons/md";
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
-// import ReactPlayer from "react-player";
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
-interface IPlayerVideoPlayer {
+interface IPlayerVideoPlayerProps {
   videoId: string;
+
   onPlayNext: () => void;
 }
+export interface IPlayerVideoPlayerRef {
+  setProgress: (seconds: number) => void;
+}
+// eslint-disable-next-line react/display-name
+export const PlayerVideoPlayer = forwardRef<IPlayerVideoPlayerRef, IPlayerVideoPlayerProps>(({ videoId, onPlayNext }, playerRefToForward) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<TReactPlayer>();
 
-export const PlayerVideoPlayer = ({
-  videoId,
-  onPlayNext,
-}: IPlayerVideoPlayer) => {
+  const [totalDuration, setTotalDuration] = useState<number | undefined>(undefined);
   const [progress, setProgress] = useState<number | undefined>(undefined);
-  const [totalDuration, setTotalDuration] = useState<number | undefined>(
-    undefined
-  );
 
-  const secondsUltilEnd = useMemo(() => {
+
+  const secondsUntilEnd = useMemo(() => {
     if (!totalDuration) return undefined;
     if (!progress) return undefined;
+
     return Number((totalDuration - progress).toFixed(0));
-  }, [totalDuration, progress]);
+  }, [progress, totalDuration]);
 
   const showNextButton = useMemo(() => {
-    return secondsUltilEnd && secondsUltilEnd <= 30;
+    return !!secondsUntilEnd && secondsUntilEnd <= 30;
+  }, [secondsUntilEnd]);
 
-  }, [secondsUltilEnd]);
+
+  useImperativeHandle(playerRefToForward, () => {
+    return {
+      setProgress(seconds) {
+        playerRef.current?.seekTo(seconds, 'seconds');
+        wrapperRef.current?.scrollIntoView({ behavior: 'smooth' });
+      },
+    };
+  }, []);
+
 
   return (
-    <>
+    <div ref={wrapperRef} className='h-full'>
       {showNextButton && (
         <button
           onClick={onPlayNext}
-          className="flex items-center gap-2 bg-primary p-3 px-4 rounded-lg font-bold absolute right-4 top-36"
+          className='bg-primary p-3 px-4 rounded-lg font-bold flex gap-2 items-center absolute right-4 top-36'
         >
-          Próxima aula em {secondsUltilEnd}s
+          Próxima aula em {secondsUntilEnd}
           <MdPlayCircle size={24} />
         </button>
       )}
 
       <ReactPlayer
-        height={"100%"}
-        width={"100%"}
+        height='100%'
+        width='100%'
+
         playing={true}
         controls={true}
-        onProgress={({ playedSeconds }) => setProgress(playedSeconds)}
-        onDuration={(duration) => setTotalDuration(duration)}
+
         onEnded={() => onPlayNext()}
-        url={`https://www.youtube.com/embed/bP47qRVRqQs?si=${videoId}`}
+        onReady={ref => playerRef.current = ref}
+
+        onDuration={(duration) => setTotalDuration(duration)}
+        onProgress={({ playedSeconds }) => setProgress(playedSeconds)}
+
+        url={`https://www.youtube.com/watch?v=${videoId}`}
       />
-    </>
+    </div>
   );
-};
+});
