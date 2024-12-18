@@ -6,14 +6,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
 
 import { CourseHeaderLoading } from "@/components/course-header/CourseHeaderLoading";
-import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
-import { Comments } from "./components/comments/Comments";
+import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { PlayerClassHeader } from "./components/PlayerClassHeader";
 import {
   IPlayerVideoPlayerRef,
   PlayerVideoPlayer,
 } from "./components/PlayerVideoPlayer";
+import { ICommentProps } from "./components/comments/Comment";
+import { Comments } from "./components/comments/Comments";
 
 const CourseHeader = dynamic(
   () =>
@@ -40,10 +41,12 @@ interface IPlayerClassDetailsProps {
     description: string;
     commentsCount: number;
   };
+  comments: ICommentProps[];
 }
 export const PlayerClassDetails = ({
   course,
   classItem,
+  comments,
 }: IPlayerClassDetailsProps) => {
   const router = useRouter();
 
@@ -168,89 +171,7 @@ export const PlayerClassDetails = ({
           />
         </Tabs.Content>
         <Tabs.Content value="class-comments" className="px-2">
-          <Comments
-            comments={[
-              {
-                likesCount: 15,
-                replies: undefined,
-                content: "My comment",
-                publishDate: "2024-09-09T20:16:37Z",
-                author: {
-                  userName: "@LucasSouzaDev",
-                  image:
-                    "https://yt3.ggpht.com/mrBfIDtsXB_Q-NFs_MDN5e3SnfBwX-ONlw6weUSnFkid-b6mQx5QCfXJO0NVZKay9y1qQGyo=s48-c-k-c0x00ffffff-no-rj",
-                },
-              },
-              {
-                likesCount: 15,
-                content: "My comment",
-                publishDate: "2024-09-09T20:16:37Z",
-                author: {
-                  userName: "@LucasSouzaDev",
-                  image:
-                    "https://yt3.ggpht.com/mrBfIDtsXB_Q-NFs_MDN5e3SnfBwX-ONlw6weUSnFkid-b6mQx5QCfXJO0NVZKay9y1qQGyo=s48-c-k-c0x00ffffff-no-rj",
-                },
-                replies: [
-                  {
-                    likesCount: 15,
-                    replies: undefined,
-                    content: "My reply",
-                    publishDate: "2024-09-09T20:16:37Z",
-                    author: {
-                      userName: "@LucasSouzaDev",
-                      image:
-                        "https://yt3.ggpht.com/mrBfIDtsXB_Q-NFs_MDN5e3SnfBwX-ONlw6weUSnFkid-b6mQx5QCfXJO0NVZKay9y1qQGyo=s48-c-k-c0x00ffffff-no-rj",
-                    },
-                  },
-                  {
-                    likesCount: 15,
-                    replies: undefined,
-                    content: "My reply",
-                    publishDate: "2024-09-09T20:16:37Z",
-                    author: {
-                      userName: "@LucasSouzaDev",
-                      image:
-                        "https://yt3.ggpht.com/mrBfIDtsXB_Q-NFs_MDN5e3SnfBwX-ONlw6weUSnFkid-b6mQx5QCfXJO0NVZKay9y1qQGyo=s48-c-k-c0x00ffffff-no-rj",
-                    },
-                  },
-                ],
-              },
-              {
-                likesCount: 15,
-                content: "My comment",
-                publishDate: "2024-09-09T20:16:37Z",
-                author: {
-                  userName: "@LucasSouzaDev",
-                  image:
-                    "https://yt3.ggpht.com/mrBfIDtsXB_Q-NFs_MDN5e3SnfBwX-ONlw6weUSnFkid-b6mQx5QCfXJO0NVZKay9y1qQGyo=s48-c-k-c0x00ffffff-no-rj",
-                },
-                replies: [
-                  {
-                    likesCount: 15,
-                    replies: undefined,
-                    content: "My reply",
-                    publishDate: "2024-09-09T20:16:37Z",
-                    author: {
-                      userName: "@LucasSouzaDev",
-                      image:
-                        "https://yt3.ggpht.com/mrBfIDtsXB_Q-NFs_MDN5e3SnfBwX-ONlw6weUSnFkid-b6mQx5QCfXJO0NVZKay9y1qQGyo=s48-c-k-c0x00ffffff-no-rj",
-                    },
-                  },
-                  {
-                    likesCount: 15,
-                    replies: undefined,
-                    content: "My reply",
-                    publishDate: "2024-09-09T20:16:37Z",
-                    author: {
-                      userName: "@LucasSouzaDev",
-                      image:
-                        "https://yt3.ggpht.com/mrBfIDtsXB_Q-NFs_MDN5e3SnfBwX-ONlw6weUSnFkid-b6mQx5QCfXJO0NVZKay9y1qQGyo=s48-c-k-c0x00ffffff-no-rj",
-                    },
-                  },
-                ],
-              },
-            ]}
-          />
+          <Comments comments={comments} />
         </Tabs.Content>
         <Tabs.Content value="course-details" className="px-2">
           <CourseHeader
