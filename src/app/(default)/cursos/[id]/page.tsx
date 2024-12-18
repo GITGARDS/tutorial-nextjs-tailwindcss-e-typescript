@@ -1,14 +1,16 @@
-"use client";
+import { Metadata } from "next";
+
 import { CourseContent } from "@/components/course-content/CourseContent";
 import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { StartCourse } from "@/components/StartCourse";
-import { Metadata } from "next";
-
 
 interface Props {
   params: { id: string };
 }
-export async function generateMtadata({ params }: Props): Promise<Metadata> {
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // vai na api do you tube e busca os dados necessários
+
   return {
     title: params.id,
     description: params.id,
@@ -18,89 +20,54 @@ export async function generateMtadata({ params }: Props): Promise<Metadata> {
 export default function PageCourseDetail({ params }: Props) {
   return (
     <main className="mt-8 flex justify-center">
-      <div className="w-full min-[880px]:max-w-[880px] px-2 lg:px-0 flex flex-col gap-4 md:flex-row-reverse">
+      <div className="w-full min-[880px]:max-w-[880px] px-2 flex flex-col gap-4 lg:px-0 md:flex-row-reverse">
         <div className="flex-1">
           <StartCourse
-            title="Curso de Figma para DEVs"
             idClass="1"
             idCourse="1"
-            imageUrl="https://flowbite.com/docs/images/blog/image-1.jpg"
+            title="🎩 Curso de Figma para DEVs"
+            imageUrl="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
           />
         </div>
+
         <div className="flex-[2] flex flex-col gap-12 pb-12">
           <CourseHeader
-            title="Curso de figma para DEVS"
-            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, eveniet.
-        Laborum cum voluptates quas obcaecati assumenda. Commodi maxime magnam
-        perferendis sapiente corrupti eum cumque, debitis, quisquam voluptatibus
-        vel dolor. Architecto ullam, quae consequuntur quis, ratione ex itaque
-        assumenda labore esse asperiores beatae aspernatur suscipit inventore
-        illum nesciunt odit dolorem facere, natus maxime fugit. Et ab assumenda
-        libero hic iusto quasi temporibus iste cumque veritatis. Praesentium
-        unde consectetur maiores temporibus eos? Nesciunt rerum illo, modi non
-        eum quas, placeat eligendi asperiores rem repellendus recusandae
-        repudiandae? Facere velit fuga id ipsum vitae reiciendis dolor esse
-        doloribus, aspernatur a aliquam perspiciatis fugit, non corporis
-        reprehenderit, commodi ab consequuntur laboriosam aut rerum. Aliquid,
-        atque! Vel fugiat vitae molestiae aut velit ratione. Laboriosam labore
-        fugit nisi, quisquam quidem esse, maxime reprehenderit, illo repudiandae
-        distinctio veritatis mollitia eveniet ea est error vitae animi aut
-        molestias eos? Perferendis, est. Maxime adipisci dicta accusamus! Ipsum
-        amet suscipit pariatur."
             numberOfClasses={48}
+            title="🎩 Curso de Figma para DEVs"
+            description="Os melhores desenvolvedores do mercado fazem questão que estar preparados para os mais diversos tipos de desafios nas suas carreiras. A habilidade de desenvolver protótipos ou mesmo de entender como um protótipo foi desenvolvido pode ser um baita diferencial para você. Nesse curso que te mostrar de forma simples e prática como desenvolver protótipos no figma, vamos aproveitar certos conhecimentos de programação ao decorrer do curso. Tenho certeza que esse tem o potencial de ser o melhor curso de figma para desenvolvedores disponíveis gratuitamente. #CODARSE"
           />
+
           <CourseContent
             classGroups={[
               {
-                title: "Introducao e apresentacao do projeto",
                 courseId: "123",
+                title: "Introdução e apresentação do projeto",
                 classes: [
                   {
-                    id: "1",
+                    id: "234",
                     title:
-                      "NextJs, TailwindCSS e Typescript: #00 - Apresentacao do prototipo",
+                      "NextJS, TailwindCSS e Typescript: #00 - Apresentação do projeto",
                   },
                   {
-                    id: "2",
+                    id: "235",
                     title:
-                      "NextJs, TailwindCSS e Typescript: #01 - Apresentacao do prototipo",
+                      "NextJS, TailwindCSS e Typescript: #01 - Apresentação do protótipo",
                   },
                 ],
               },
               {
-                title: "Introducao e apresentacao do projeto",
                 courseId: "123",
+                title: "Primeiras configuração necessárias",
                 classes: [
                   {
-                    id: "1",
+                    id: "234",
                     title:
-                      "NextJs, TailwindCSS e Typescript: #00 - Apresentacao do prototipo",
+                      "NextJS, TailwindCSS e Typescript: #00 - Apresentação do projeto",
                   },
                   {
-                    id: "2",
+                    id: "235",
                     title:
-                      "NextJs, TailwindCSS e Typescript: #01 - Apresentacao do prototipo",
-                  },
-                  {
-                    id: "3",
-                    title:
-                      "NextJs, TailwindCSS e Typescript: #02 - Apresentacao do prototipo",
-                  },
-                ],
-              },
-              {
-                title: "Introducao e apresentacao do projeto",
-                courseId: "123",
-                classes: [
-                  {
-                    id: "1",
-                    title:
-                      "NextJs, TailwindCSS e Typescript: #00 - Apresentacao do prototipo",
-                  },
-                  {
-                    id: "2",
-                    title:
-                      "NextJs, TailwindCSS e Typescript: #01 - Apresentacao do prototipo",
+                      "NextJS, TailwindCSS e Typescript: #01 - Apresentação do protótipo",
                   },
                 ],
               },
