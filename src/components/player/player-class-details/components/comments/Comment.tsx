@@ -1,42 +1,86 @@
 "use client";
+import { format, parseISO } from "date-fns";
 import Image from "next/image";
-import { MdArrowDropDown, MdThumbUp } from "react-icons/md";
+import { useMemo, useState } from "react";
+import { MdArrowDropDown, MdArrowDropUp, MdThumbUp } from "react-icons/md";
 
-interface ICommentProps {}
+export interface ICommentProps {
+  content: string;
+  likesCount: number;
+  publishDate: string;
+  author: {
+    image: string;
+    userName: string;
+  };
+  replies?: ICommentProps[];
+}
+export const Comment = ({
+  author,
+  content,
+  likesCount,
+  publishDate,
+  replies,
+}: ICommentProps) => {
+  const [showReplies, setShowReplies] = useState(false);
 
-export const Comment = ({}: ICommentProps) => {
+  const date = useMemo(() => {
+    const dateAsDate = parseISO(publishDate);
+    return format(dateAsDate, "dd/MM/yyyy -- hh:mm").replace("--", "às");
+  }, [publishDate]);
+
   return (
-    <div className="flex gap-2 items-start">
-      <Image
-        src={
-          "https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"
-        }
-        alt="Avatar"
-        width={40}
-        height={40}
-        draggable={false}
-        className="rounded-full"
-      />
+    <div className="flex flex-col gap-1">
+      <div className="flex gap-2 items-start">
+        <Image
+          width={40}
+          height={40}
+          draggable={false}
+          className="rounded-full"
+          src={author.image}
+          alt="Imagem de perfil"
+        />
 
-      <div className="bg-paper flex-1 flex flex-col gap-4 p-2 rounded">
-        <div className="flex gap-2 items-center">
-          <span className="font-bold">User Name</span>
-          <span className="font-extrabold opacity-50 text-xs">
-            25/07/25 as 15:25
-          </span>
-        </div>
-        <p>Comment</p>
-        <div className="flex gap-4">
-          <div className="flex items-center gap-1">
-            <MdThumbUp />
-            <span>5</span>
+        <div className="bg-paper flex-1 flex flex-col gap-4 p-2 rounded">
+          <div className="flex gap-2 items-center">
+            <span className="font-bold">{author.userName}</span>
+
+            <span className="font-extrabold text-xs opacity-50">{date}</span>
           </div>
 
-          <button className="flex items-center gap-1 text-primary">
-            <MdArrowDropDown size={24} />
-            <span>Ver Resposta (2)</span>
-          </button>
+          <p>{content}</p>
+
+          <div className="flex gap-4">
+            <div className="flex gap-1 items-center">
+              <MdThumbUp />
+
+              <span>{likesCount}</span>
+            </div>
+
+            {replies && replies.length > 0 && (
+              <button
+                className="flex gap-1 items-center text-primary"
+                onClick={() => setShowReplies(!showReplies)}
+              >
+                {showReplies ? (
+                  <MdArrowDropUp size={24} />
+                ) : (
+                  <MdArrowDropDown size={24} />
+                )}
+
+                <span>
+                  {showReplies ? "Ocultar" : "Ver"} respostas ({replies.length})
+                </span>
+              </button>
+            )}
+          </div>
         </div>
+      </div>
+
+      <div className="pl-12">
+        {showReplies &&
+          replies?.map((reply) => (
+            <Comment key={reply.publishDate} {...reply} />
+          ))}
       </div>
     </div>
   );
