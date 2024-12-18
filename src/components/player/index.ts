@@ -1,3 +1,5 @@
+export * from "./player-class-details/components/comments/Comment";
+export * from "./player-class-details/components/comments/Comments";
 export * from "./player-class-details/components/PlayerClassHeader";
 export * from "./player-class-details/components/PlayerVideoPlayer";
 export * from "./player-class-details/PlayerClassDetails";

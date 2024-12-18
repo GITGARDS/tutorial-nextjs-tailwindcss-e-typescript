@@ -10,6 +10,7 @@ import {
   IPlayerVideoPlayerRef,
   PlayerVideoPlayer,
 } from "./components/PlayerVideoPlayer";
+import { Comments } from "./components/comments/Comments";
 
 interface IPlayerClassDetailsProps {
   course: {
@@ -66,7 +67,7 @@ export const PlayerClassDetails = ({
         />
       </div>
 
-      <Tabs.Root defaultValue="class-details">
+      <Tabs.Root defaultValue="class-comments">
         <Tabs.List className="flex gap-4">
           <Tabs.Trigger
             value="class-details"
@@ -90,7 +91,7 @@ export const PlayerClassDetails = ({
 
         <hr className="border-paper mb-2" />
 
-        <Tabs.Content value="class-details">
+        <Tabs.Content value="class-details" className="px-2">
           <PlayerClassHeader
             title={classItem.title}
             description={classItem.description}
@@ -99,14 +100,19 @@ export const PlayerClassDetails = ({
             }
           />
         </Tabs.Content>
-        <Tabs.Content value="class-comments">Comentários da aula</Tabs.Content>
-        <Tabs.Content value="course-details">
+
+        <Tabs.Content value="class-comments" className="px-2">
+          <Comments />
+        </Tabs.Content>
+
+        <Tabs.Content value="course-details" className="px-2">
           <CourseHeader
             title={course.title}
             description={course.description}
             numberOfClasses={course.numberOfClasses}
           />
         </Tabs.Content>
+
       </Tabs.Root>
     </div>
   );
