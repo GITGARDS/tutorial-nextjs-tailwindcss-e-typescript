@@ -1,10 +1,10 @@
 "use client";
 import * as Tabs from "@radix-ui/react-tabs";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { MdComment, MdThumbUp, MdVisibility } from "react-icons/md";
 
+import { CourseHeader } from "@/components/course-header/CourseHeader";
 import { IPlayerClassGroupProps } from "../playlist/components/PlayerClassGroup";
 import { PlayerPlaylist } from "../playlist/PlayerPlaylist";
 import { Comments } from "./components/comments/Comments";
@@ -13,13 +13,6 @@ import {
   IPlayerVideoPlayerRef,
   PlayerVideoPlayer,
 } from "./components/PlayerVideoPlayer";
-
-const CourseHeader = dynamic(
-  import("@/components/course-header/CourseHeader").then(
-    (res) => res.CourseHeader
-  ),
-  { ssr: false }
-);
 
 interface IPlayerClassDetailsProps {
   course: {
